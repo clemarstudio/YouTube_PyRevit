@@ -7,19 +7,12 @@ uidoc = uiapp.ActiveUIDocument
 doc   = uidoc.Document
 view  = doc.ActiveView
 
-
+# 1. get elements in view by category
 def elements_in_view_by_category(categories):
-    """
-    Collect all non-type elements of a BuiltInCategory in the ACTIVE VIEW only.
-    Using view-scoped collector keeps things fast and safe.
-    """
     return list(FilteredElementCollector(doc, view.Id).OfCategory(categories).WhereElementIsNotElementType().ToElements())
 	
+# 2. create outline from element's bounding box
 def create_outline(ele):
-    """
-    Create an Outline from element's bounding box IN THE CURRENT VIEW.
-    Return None if the element has no view bbox (e.g., hidden, not cuttable here).
-    """
     try:
         bb = ele.get_BoundingBox(view)
         if bb and bb.Min and bb.Max:
@@ -28,23 +21,22 @@ def create_outline(ele):
         pass
     return None
     
-def candidates_by_bbox(category, outline):
-    """
-    Return elements of category whose bounding boxes intersect 'outline' (strict).
-    Strict = False second arg -> only true intersections (no just-touch) -> fewer false positives.
-    """
+# 3. checking by bbox
+def checking_by_bbox(category, outline):
     if outline is None:
         return []
 
     bb_filter = BoundingBoxIntersectsFilter(outline, False)
     return list(FilteredElementCollector(doc, view.Id).OfCategory(category).WherePasses(bb_filter).WhereElementIsNotElementType().ToElements())
 
+# 4. try join
 def try_join(a, b):
     try:
         JoinGeometryUtils.JoinGeometry(doc, a, b)
     except:
         pass
 
+# 5. try switch order
 def try_switch_order(keeper, cutter):
     try:
         if JoinGeometryUtils.IsCuttingElementInJoin(doc, cutter, keeper):
@@ -53,17 +45,11 @@ def try_switch_order(keeper, cutter):
         pass
 
 
-
 # ========= Main Logic =========
 
 def main():
 
-    """
-    Process four common categories in a priority chain.
-    Earlier = stronger (wins first). Reorder to taste.
-    """
-
-    # 1. BuiltInCategory mapping (your original idea: Columns -> Beams -> Floors -> Walls)
+    # 1. BuiltInCategory mapping
     priority = [
         BuiltInCategory.OST_StructuralColumns,   # 0 Columns
         BuiltInCategory.OST_StructuralFraming,   # 1 Beams
@@ -71,14 +57,14 @@ def main():
         BuiltInCategory.OST_Walls,               # 3 Walls
     ]
 
-    # 2. Pre-collect per category for speed (list of lists, same indices as priority)
+    # 2. Collect elements per category
     buckets = [elements_in_view_by_category(bic) for bic in priority]
 
-    # 3.1 Start one transaction for the whole pass (fast + single undo step)
+    # 3.1 Start one transaction for the whole pass
     t = Transaction(doc, "Auto-Join (Beginner)")
     t.Start()
 
-    # 3.2 Walk the priority list downwards
+    # 3.2 Walk the priority list downwards (from higher priority to lower priority)
     # For each element, we join with:
     #   1) same-category neighbors, then
     #   2) every LATER category (lower priority) to enforce dominance
@@ -94,7 +80,7 @@ def main():
                 continue
 
             # 1) self-join (same category neighbors)
-            for other in candidates_by_bbox(p_cat, outline):
+            for other in checking_by_bbox(p_cat, outline):
                 if other.Id == ele.Id:
                     continue
                 # Attempt join; if join exists or invalid, it's fine
@@ -105,7 +91,7 @@ def main():
             # 2) join with every *lower-priority* category to propagate dominance
             for lower_group_number in range(group_number + 1, len(priority)):
                 lower_cat = priority[lower_group_number]
-                for other in candidates_by_bbox(lower_cat, outline):
+                for other in checking_by_bbox(lower_cat, outline):
                     if other.Id == ele.Id:
                         continue
                     try_join(ele, other)
@@ -113,8 +99,6 @@ def main():
 
     t.Commit()
 
-
 # ========= Run =========
-if __name__ == "__main__":
-    main()
-    print("Done! Processed Columns -> Beams -> Floors -> Walls in the Active View.")
+main()
+print("Done! Processed Columns -> Beams -> Floors -> Walls in the Active View.")
