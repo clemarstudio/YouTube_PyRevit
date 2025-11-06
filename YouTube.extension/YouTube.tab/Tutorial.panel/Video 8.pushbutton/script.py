@@ -124,10 +124,15 @@ def get_elements_for_filter(category_type, parameter_name, parameter_value):
 class MyWindow(Windows.Window):
     
     def __init__(self):
+
+        # Load the XAML file
         wpf.LoadComponent(self, script.get_bundle_file('ui.xaml'))
+
         # Initialize parameter data dictionaries for filter 1 and filter 2
         self.filter1_parameters = {}
         self.filter2_parameters = {}
+
+        # Load categories and set up events
         self.load_categories()
         self.setup_events()
     
@@ -142,6 +147,7 @@ class MyWindow(Windows.Window):
                 if collector.GetElementCount() > 0:
                     category_names.append(category.Name)
         
+        # Set the ComboBox items
         self.CbCat1.ItemsSource = category_names
         self.CbCat2.ItemsSource = category_names
     
