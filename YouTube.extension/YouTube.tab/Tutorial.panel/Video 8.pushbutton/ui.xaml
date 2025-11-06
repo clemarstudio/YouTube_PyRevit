@@ -1,0 +1,25 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Select Elements (Beginner)" Height="420" Width="360"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Topmost="True">
+  <StackPanel Margin="12" >
+    <TextBlock Text="Filter 1" FontWeight="Bold" Margin="0,0,0,6"/>
+    <CheckBox x:Name="ChkAny1" Content="Any category" Margin="0,0,0,6"/>
+    <ComboBox x:Name="CbCat1" Margin="0,0,0,6" IsEnabled="True"/>
+    <ComboBox x:Name="CbParam1" Margin="0,0,0,6" IsEnabled="False"/>
+    <ComboBox x:Name="CbValue1" Margin="0,0,0,12" IsEditable="True" IsEnabled="False"/>
+
+    <TextBlock Text="Filter 2 (optional)" FontWeight="Bold" Margin="0,0,0,6"/>
+    <CheckBox x:Name="ChkAny2" Content="Any category" Margin="0,0,0,6"/>
+    <ComboBox x:Name="CbCat2" Margin="0,0,0,6" IsEnabled="True"/>
+    <ComboBox x:Name="CbParam2" Margin="0,0,0,6" IsEnabled="False"/>
+    <ComboBox x:Name="CbValue2" Margin="0,0,0,12" IsEditable="True" IsEnabled="False"/>
+
+    <CheckBox x:Name="ChkUseOr" Content="Use OR (unchecked = AND)" Margin="0,0,0,12"/>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Button x:Name="BtnClear" Content="Clear" MinWidth="70" Margin="0,0,6,0"/>
+        <Button x:Name="BtnSelect" Content="Select" MinWidth="80"/>
+    </StackPanel>
+  </StackPanel>
+</Window>
