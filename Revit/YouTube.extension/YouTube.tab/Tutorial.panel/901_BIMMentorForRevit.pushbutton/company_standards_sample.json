@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Drawing Walls",
+    "text": "To draw a wall in Revit, go to the Architecture tab and click the Wall tool. Ensure your base constraint and top constraint are set correctly before drawing."
+  },
+  {
+    "title": "Visibility Graphics",
+    "text": "Press VV or VG on your keyboard to open the Visibility/Graphics dialog. Here you can turn model categories on or off."
+  },
+  {
+    "title": "Family Naming Convention",
+    "text": "All internal families must follow the naming format: [Category]_[Manufacturer]_[Description]. Example: Door_AssaAbloy_SingleFlush. Avoid using spaces; use underscores instead."
+  },
+  {
+    "title": "Wall Type Naming",
+    "text": "Wall types should be named based on their function and thermal properties. Format: [Interior/Exterior] - [Width]mm - [Material]. Example: Ext - 350mm - Concrete with Insulation."
+  },
+  {
+    "title": "BIM Modeling Accuracy",
+    "text": "Always model to the nearest millimeter. Never use the 'Override Graphics' tool to hide modeling inaccuracies. If a wall is 100.2mm, fix the wall geometry instead of overriding the dimension text."
+  },
+  {
+    "title": "Sheet Naming and Numbering",
+    "text": "Sheet numbers must follow the ISO 19650 standard. Prefix 'A' for Architecture, 'S' for Structural, and 'M' for Mechanical. Example: A-101 (Ground Floor Plan)."
+  },
+  {
+    "title": "Shared Parameters",
+    "text": "Do not create new Project Parameters manually. Always use the company's Shared Parameter file located on the 'Z:\\BIM_Standards\\Shared_Parameters.txt' drive to ensure schedule consistency."
+  },
+  {
+    "title": "Room Calculations",
+    "text": "Room area calculations should be set to 'At wall finish' in the Area and Volume Computations dialog to comply with local building code requirements for net leasable area."
+  },
+  {
+    "title": "Worksharing Protocol",
+    "text": "Always 'Synchronize with Central' at least twice a day (midday and before leaving). Always 'Relinquish All Mine' when closing the model to avoid blocking other team members."
+  },
+  {
+    "title": "Warning Management",
+    "text": "A healthy model should have fewer than 100 unresolved warnings. Critical warnings like 'Duplicate Mark Values' or 'Elements Overlap' must be resolved immediately by the project BIM coordinator."
+  },
+  {
+    "title": "Linked Model Standards",
+    "text": "Linked Revit models must be set to 'By Linked View' or 'Custom' for visibility. Do not use 'By Host View' for engineering links to ensure correct graphical representation of pipes and ducts."
+  },
+  {
+    "title": "Phasing and Phase Mapping",
+    "text": "Ensure that the Phase Mapping in Linked Models is correctly aligned with the host project. Elements moved to 'Demolished' must be assigned to the correct 'Existing' and 'New Construction' phases."
+  },
+  {
+    "title": "DWG Link vs Import",
+    "text": "Never 'Import' a DWG file into a Revit project. Always use 'Link CAD'. All linked DWGs must be set to 'Current View Only' and placed on the correct 'Working' workset to prevent model bloat."
+  },
+  {
+    "title": "Coordinate System (Project Base Point)",
+    "text": "Never move the Project Base Point or Survey Point after the project has started. Use 'Acquire Coordinates' from the site model once at the beginning of the project to ensure multi-disciplinary alignment."
+  },
+  {
+    "title": "View Template Usage",
+    "text": "Manual overrides to views are discouraged. Every sheet view must have an assigned View Template. If changes are needed, update the Template so the entire sheet set remains consistent."
+  },
+  {
+    "title": "Family Geometry and Level of Detail",
+    "text": "Avoid modeling 3D geometry for small details like screws or hinges. Use Symbol Lines or Detail Components in 'Fine' detail level views. This keeps the model lightweight and improves performance."
+  },
+  {
+    "title": "In-Place Models",
+    "text": "Use of 'Model In-Place' is strictly limited to one-off site geometry that cannot be created as a standard family. Repeated elements must be built as loadable RFA files."
+  },
+  {
+    "title": "Revit Purge and Maintenance",
+    "text": "Run a 'Purge Unused' command every Friday before archival. Only purge elements that you are 100% sure are not needed in the future template or project standards."
+  }
+]

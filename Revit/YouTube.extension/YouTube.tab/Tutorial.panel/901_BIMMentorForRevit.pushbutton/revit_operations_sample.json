@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Creating a New Revit Project",
+    "text": "To create a new Revit project, launch Revit and click 'New' on the Home screen. In the 'New Project' dialog, select your company template file (.rte) from the Template file dropdown. Click OK. The project will open with all predefined views, sheets, and families already loaded from the template."
+  },
+  {
+    "title": "Setting Up Levels",
+    "text": "Levels define the vertical organisation of the building. Open a Section or Elevation view. Go to Architecture tab > Datum panel > Level. Click to place a new level line. Double-click the level name to rename it (e.g., 'L01 - Ground Floor'). Use the 'Make Plan' checkbox in the Properties palette to automatically generate a corresponding floor plan view."
+  },
+  {
+    "title": "Drawing Walls",
+    "text": "To draw a wall, go to Architecture tab > Build panel > Wall > Wall: Architectural. In the Properties palette, select the correct wall type and set the Base Constraint (e.g., L01) and Top Constraint (e.g., L02). Use 'Chain' mode in the Options Bar to draw connected wall segments continuously. Press Escape when finished."
+  },
+  {
+    "title": "Placing Doors and Windows",
+    "text": "Doors and windows are hosted by walls. Click Architecture tab > Build panel > Door (or Window). Select the desired family type from the Type Selector in the Properties palette. Hover over a wall and click to place. Use the blue flip arrows to control the swing direction or the hand/face orientation after placement."
+  },
+  {
+    "title": "Creating Floors",
+    "text": "Go to Architecture tab > Build panel > Floor > Floor: Architectural. Revit enters sketch mode. Use the boundary tools (Line, Pick Walls) to draw the floor perimeter. Ensure the boundary is a closed loop with no gaps or overlaps. Click the green checkmark (Finish Edit Mode) to complete. The floor will auto-join with walls if 'Room Bounding' is enabled."
+  },
+  {
+    "title": "Creating Roofs by Footprint",
+    "text": "Open a plan view at the highest level. Go to Architecture tab > Build panel > Roof > Roof by Footprint. Sketch the roof boundary by picking the outer walls or drawing lines. In the Options Bar, set the 'Overhang' distance and check/uncheck 'Defines Slope' for each edge. Set the slope angle in the Properties palette, then click Finish Edit Mode."
+  },
+  {
+    "title": "Adding Rooms and Room Tags",
+    "text": "Go to Architecture tab > Room & Area panel > Room. Click inside an enclosed wall boundary to place a room. To add a tag, go to Architecture tab > Room & Area panel > Room Tag. Click on a room to tag it. Double-click the room name or number within the tag to edit these values. Room area will update automatically based on the wall boundary."
+  },
+  {
+    "title": "Creating a Section View",
+    "text": "Go to View tab > Create panel > Section. Click and drag across the model in a plan view to define the section cut line. Double-click the section head or the section bubble to open the section view. In the section view, use the far-clip plane handle to control the view depth. Rename the view in the Properties palette."
+  },
+  {
+    "title": "Creating a 3D View",
+    "text": "Go to View tab > Create panel > 3D View > Default 3D View to open a perspective isometric view. For a custom 3D view, select Camera from the dropdown. In a plan view, click to set the camera position, then click again to set the target point. You can then orbit in the 3D view by holding Shift and dragging with the middle mouse button."
+  },
+  {
+    "title": "Using the Section Box in 3D Views",
+    "text": "In a 3D view, open the Properties palette and check 'Section Box'. A box will appear around the model. Click on the box edges and drag the blue arrows to crop the 3D view from any direction. This is useful for isolating floors, rooms, or building sections for presentation and coordination purposes."
+  },
+  {
+    "title": "Dimensioning Elements",
+    "text": "Go to Annotate tab > Dimension panel > Aligned Dimension. Click on the references you want to dimension (e.g., wall faces, grid lines), then click in empty space to place the dimension string. Use 'Individual References' option in the Options Bar to add multiple segments in one click. Press Tab to cycle between available references on overlapping elements."
+  },
+  {
+    "title": "Creating a Schedule",
+    "text": "Go to View tab > Create panel > Schedules > Schedule/Quantities. In the 'New Schedule' dialog, select the category (e.g., Doors, Rooms, Walls). Click OK, then in the 'Schedule Properties' dialog, add fields from the left list to the right 'Scheduled fields' list. Use the 'Filter' and 'Sorting/Grouping' tabs to refine the data. Click OK to generate the schedule."
+  },
+  {
+    "title": "Placing a View on a Sheet",
+    "text": "Open a sheet (or create one via View tab > Sheet Composition > Sheet). In the Project Browser, drag and drop a view onto the sheet viewport. Alternatively, go to View tab > Sheet Composition > Place View. Each view can only be placed on one sheet at a time. Click the view on the sheet and use the Properties palette to apply a View Template or adjust the scale."
+  },
+  {
+    "title": "Creating a New Sheet",
+    "text": "Go to View tab > Sheet Composition > Sheet. Select a title block family from the list (e.g., A1 Metric). Click OK. The new sheet opens automatically. Give it a number and name in the Properties palette (Sheet Number and Sheet Name fields). These values will populate the title block automatically if the title block family is set up to do so."
+  },
+  {
+    "title": "Tagging Elements",
+    "text": "Go to Annotate tab > Tag panel > Tag by Category. Click on any model element (wall, door, duct, etc.) to place a tag. The tag will display the instance or type parameter defined in the tag family. Use 'Tag All' to automatically tag all untagged elements of a selected category in the current view, saving time on large projects."
+  },
+  {
+    "title": "Copying Elements Between Levels",
+    "text": "Select the elements you want to copy. Go to Modify tab > Clipboard panel > Copy to Clipboard (Ctrl+C). Then go to Modify tab > Clipboard panel > Paste > Aligned to Selected Levels. In the dialog, select the target level(s). The elements will be pasted at the same relative position on the chosen level(s), which is ideal for repetitive floor layouts."
+  },
+  {
+    "title": "Using the Mirror Tool",
+    "text": "Select the elements to mirror. Go to Modify tab > Modify panel > Mirror - Pick Axis or Mirror - Draw Axis. 'Pick Axis' lets you click an existing line (e.g., a wall or reference plane) as the mirror axis. 'Draw Axis' lets you define a temporary line by clicking two points. Use the 'Copy' option in the Options Bar to keep the original and create a mirrored copy."
+  },
+  {
+    "title": "Applying and Creating View Filters",
+    "text": "Open the Visibility/Graphics dialog (VV or VG). Go to the 'Filters' tab. Click 'Add' to select an existing filter, or click 'Edit/New' to create one. In the filter editor, choose a category (e.g., Walls), then define a rule (e.g., 'Type Name contains Exterior'). Back in the Visibility/Graphics dialog, set the filter's projection colour and line weight to visually identify those elements."
+  },
+  {
+    "title": "Worksharing: Creating a Local File",
+    "text": "Never open the Central File directly. In Revit, go to File > Open > Browse to the Central File (.rvt on the server). In the Open dialog, check 'Create New Local'. Revit will create a local copy in your specified local folder. Always work from this local file. Use Synchronise with Central (SWC) regularly to push and pull changes with the rest of the team."
+  },
+  {
+    "title": "Managing Worksets",
+    "text": "Worksets are used in workshared projects to divide the model into collaborative subsets. Go to Collaborate tab > Manage Collaboration panel > Worksets. Click 'New' to create a workset. Assign elements to a workset by selecting them and changing the 'Workset' parameter in the Properties palette. Use the Workset visibility toggle in the View Control Bar to show or hide entire worksets in the active view."
+  },
+  {
+    "title": "Linking a Revit Model",
+    "text": "Go to Insert tab > Link panel > Link Revit. Browse to the linked model file (.rvt). In the 'Import/Link RVT' dialog, set the Positioning to 'Auto - By Shared Coordinates' for models that share the same coordinate system, or 'Auto - Origin to Origin' for a direct alignment. Click Open. Manage linked models via Manage tab > Manage Project > Manage Links."
+  },
+  {
+    "title": "Linking and Managing CAD Files",
+    "text": "Go to Insert tab > Link panel > Link CAD. Browse to the DWG, DXF, or DGN file. Set 'Colors' to 'Black and White', 'Layers' to 'Visible', and 'Positioning' to 'Manual - Origin' or 'Auto - By Shared Coordinates'. Check 'Current View Only' to restrict the link to the active view. Never use 'Import CAD'; always link to maintain a live connection to the source file."
+  },
+  {
+    "title": "Loading and Placing Families",
+    "text": "Go to Insert tab > Load from Library panel > Load Family. Browse to the .rfa file and click Open. The family is now available in the Project Browser under Families. To place it, go to Architecture (or Structural/MEP) tab and select the appropriate placement tool (e.g., Component). Select the loaded type from the Type Selector and click in the view to place an instance."
+  },
+  {
+    "title": "Editing a Family Type",
+    "text": "In the Project Browser, expand the Families node, find the family, right-click on a family type, and select 'Properties'. The 'Type Properties' dialog opens. Here you can modify Type parameters (which affect all instances of that type) such as dimensions, materials, and costs. To create a new type, click 'Duplicate', give it a new name, and change the parameters."
+  },
+  {
+    "title": "Using Design Options",
+    "text": "Design Options allow you to model multiple design alternatives within a single project. Go to Manage tab > Design Options panel > Design Options. Create an Option Set (e.g., 'Facade Design') and add individual options within it (e.g., 'Option A - Curtain Wall', 'Option B - Brick'). Toggle the active option to add model elements to a specific design option. Views can be set to display a specific option."
+  },
+  {
+    "title": "Running Interference Check",
+    "text": "Go to Collaborate tab > Coordinate panel > Interference Check > Run Check. In the dialog, select two categories to check against each other (e.g., Structural Framing vs. Duct Systems). Click OK. Revit generates a report listing all conflicting element pairs. Click on any row to highlight the clashing elements in the view. Export the report to HTML for coordination meetings."
+  },
+  {
+    "title": "Purging Unused Elements",
+    "text": "Go to Manage tab > Settings panel > Purge Unused (or type 'PU' in the search bar). Revit will scan the model and list all unused families, types, groups, and other elements. Click 'Check None' first, then selectively check the categories you want to remove to avoid accidentally deleting needed items. Click OK to purge. Always save the model before purging."
+  },
+  {
+    "title": "Exporting to IFC",
+    "text": "Go to File > Export > IFC. In the IFC Export dialog, select the view or sheet to export. Click 'Modify Setup' to configure the IFC version (IFC2x3 or IFC4), the file type (IFC, IFCzip), and element mappings. Ensure the Project Base Point coordinates are correct before export to guarantee correct geo-referencing. Click Export and choose a destination folder."
+  },
+  {
+    "title": "Printing and Exporting to PDF",
+    "text": "Go to File > Print (Ctrl+P). In the Print dialog, select your PDF printer (e.g., Microsoft Print to PDF or Bluebeam PDF). Under 'Print Range', select 'Selected Views/Sheets' and click 'Select' to choose specific sheets. Set the 'Zoom' to 100% and ensure 'Hide Ref/Work Planes' and 'Hide Scope Boxes' are checked. Click OK to generate the PDF output."
+  },
+  {
+    "title": "Using the Revit Lookup Tool (RevitLookup / Snoop)",
+    "text": "RevitLookup is an open-source add-in for inspecting Revit element data. After installation, select an element in the model. Go to Add-Ins tab > RevitLookup > Snoop Current Selection. A dialog will display all parameters, element IDs, associated geometry, and relationships for the selected element. This is an essential tool for understanding the Revit API data model and debugging pyRevit scripts."
+  }
+]
